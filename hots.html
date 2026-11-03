@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa Alon Hotel | Brgy. Dolho, Bato, Leyte</title>
+<meta name="description" content="A small hotel in Bato, Leyte. See room rates in pesos and how to reach us.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { white: '#FFFFFF', teal: '#016160', cream: '#FFECE1', gold: '#D78D46' },
+      fontFamily: {
+        display: ['Fraunces', 'Georgia', 'serif'],
+        body: ['Inter', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+
+<style>
+:root {
+  --teal: 1 97 96;
+  --cream: 255 236 225;
+  --gold: 215 141 70;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base */
+html { scroll-behavior: smooth; }
+body { background-color: #fff; font-family: var(--font-body); color: rgb(var(--teal)); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+h1, h2, h3 { font-family: var(--font-display); }
+:focus-visible { outline: 2px solid rgb(var(--gold)); outline-offset: 4px; }
+section { scroll-margin-top: 4.5rem; }
+
+/* Shared */
+.icon { height: 1.25rem; width: 1.25rem; fill: currentColor; }
+.wrap, .nav-bar, .hero-content, .footer-row { margin-left: auto; margin-right: auto; width: 100%; max-width: 72rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+.section { padding-top: 5rem; padding-bottom: 5rem; }
+.section-title { font-size: 1.875rem; line-height: 2.25rem; font-weight: 700; }
+.section-text { margin-top: 0.75rem; max-width: 36rem; font-size: 1rem; line-height: 1.625; color: rgb(var(--teal) / 0.75); }
+
+/* Transitions */
+.btn, .btn-outline, .nav, .logo, .nav-link, .chip, .room, .contact-card, .fb-link, .person {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: var(--ease);
+  transition-duration: 150ms;
+}
+.logo, .nav-link { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; }
+.btn, .btn-outline, .contact-card, .fb-link { transition-duration: 200ms; }
+.nav, .room, .person { transition-duration: 300ms; }
+
+/* Buttons */
+.btn, .btn-outline { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; padding: 0.875rem 1.75rem; font-size: 0.875rem; line-height: 1.25rem; font-weight: 600; color: #fff; }
+.btn { background-color: rgb(var(--gold)); }
+.btn-outline { border: 1px solid rgb(255 255 255 / 0.6); }
+.btn:hover, .btn-outline:hover { background-color: #fff; color: rgb(var(--teal)); }
+.btn:active, .btn-outline:active { transform: scale(0.95); }
+
+/* Navigation */
+.nav { position: fixed; left: 0; right: 0; top: 0; z-index: 50; }
+.nav.scrolled { background-color: rgb(255 255 255 / 0.95); box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.nav-bar { display: flex; height: 4.5rem; align-items: center; justify-content: space-between; }
+.logo { font-family: var(--font-display); font-size: 1.25rem; line-height: 1.75rem; font-weight: 700; color: #fff; }
+.nav.scrolled .logo { color: rgb(var(--teal)); }
+.nav-links { display: none; align-items: center; gap: 2rem; }
+.nav-link { font-size: 0.875rem; line-height: 1.25rem; font-weight: 500; color: rgb(255 255 255 / 0.85); }
+.nav-link:hover { color: rgb(var(--gold)); }
+.nav.scrolled .nav-link { color: rgb(var(--teal) / 0.8); }
+.nav-link.active { color: rgb(var(--gold)); }
+.menu-btn { border-radius: 9999px; padding: 0.5rem; color: #fff; }
+.nav.scrolled .menu-btn { color: rgb(var(--teal)); }
+.mobile-menu { display: none; flex-direction: column; gap: 0.25rem; background-color: #fff; padding: 0.5rem 1.25rem 1.25rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+.nav.open .mobile-menu { display: flex; }
+.nav.open { background-color: #fff; }
+.nav.open .logo, .nav.open .menu-btn { color: rgb(var(--teal)); }
+.mobile-menu a { border-radius: 0.75rem; padding: 0.75rem; font-size: 1rem; line-height: 1.5rem; font-weight: 500; color: rgb(var(--teal)); }
+.mobile-menu a:hover { background-color: rgb(var(--cream)); }
+
+/* Hero */
+.hero { position: relative; display: flex; min-height: 100vh; align-items: flex-end; overflow: hidden; background-color: rgb(var(--teal)); }
+.hero-video { position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-width: 177.78vh; min-height: 100%; transform: translate(-50%, -50%); border: 0; pointer-events: none; }
+.hero-shade { position: absolute; inset: 0; background-image: linear-gradient(to top, rgb(var(--teal)), rgb(var(--teal) / 0.5), rgb(var(--teal) / 0.25)); }
+.hero-content { position: relative; padding-top: 10rem; padding-bottom: 5rem; }
+.hero-title { max-width: 48rem; font-size: 3rem; line-height: 1.05; font-weight: 700; color: #fff; }
+.hero-text { margin-top: 1.5rem; max-width: 36rem; font-size: 1.125rem; line-height: 1.625; color: rgb(var(--cream)); }
+.hero-actions { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.hero-title, .hero-text, .hero-actions { animation: rise 0.9s ease-out both; }
+.hero-text { animation-delay: 0.15s; }
+.hero-actions { animation-delay: 0.3s; }
+
+/* Rooms */
+.rooms { background-color: rgb(var(--cream)); }
+.rooms-head { display: flex; flex-direction: column; gap: 1.5rem; }
+.filters { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { border-radius: 9999px; border: 1px solid rgb(var(--teal) / 0.25); background-color: #fff; padding: 0.5rem 1rem; font-size: 0.875rem; line-height: 1.25rem; font-weight: 500; color: rgb(var(--teal)); }
+.chip:hover { border-color: rgb(var(--gold)); }
+.chip.on { border-color: rgb(var(--teal)); background-color: rgb(var(--teal)); color: #fff; }
+.room.off { display: none; }
+.room-grid { margin-top: 2rem; display: grid; gap: 1.5rem; }
+.room { display: flex; flex-direction: column; overflow: hidden; border-radius: 1.5rem; background-color: #fff; }
+.room:hover { transform: translateY(-0.25rem); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+.room-photo { aspect-ratio: 4 / 3; width: 100%; background-color: rgb(var(--cream)); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.room-body { display: flex; flex: 1 1 0%; flex-direction: column; padding: 1.5rem; }
+.room-name { font-size: 1.5rem; line-height: 2rem; font-weight: 700; }
+.room-perks { margin-top: 1rem; font-size: 0.875rem; line-height: 1.25rem; color: rgb(var(--teal) / 0.8); }
+.room-perks > li + li { margin-top: 0.375rem; }
+.room-perks li { display: flex; gap: 0.5rem; }
+.room-perks li::before { content: ''; margin-top: 0.5rem; height: 0.375rem; width: 0.375rem; flex-shrink: 0; border-radius: 9999px; background-color: rgb(var(--gold)); }
+.room-price { margin-top: auto; border-top: 1px solid rgb(var(--teal) / 0.1); padding-top: 1.25rem; }
+.price { font-family: var(--font-display); font-size: 1.875rem; line-height: 2.25rem; font-weight: 700; }
+.price-note { margin-top: 0.25rem; display: block; font-size: 0.75rem; line-height: 1rem; color: rgb(var(--teal) / 0.6); }
+.rooms-note { margin-top: 2rem; font-size: 0.875rem; line-height: 1.25rem; color: rgb(var(--teal) / 0.7); }
+
+/* Contact */
+.contact-grid { margin-top: 3rem; display: grid; gap: 1.5rem; }
+.contact-card { display: flex; gap: 1rem; border-radius: 1.5rem; border: 1px solid rgb(var(--teal) / 0.15); padding: 1.5rem; }
+.contact-card:hover { border-color: rgb(var(--gold)); }
+.contact-icon { display: flex; height: 3rem; width: 3rem; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 9999px; background-color: rgb(var(--teal)); color: #fff; }
+.contact-card h3 { font-size: 1.125rem; line-height: 1.75rem; font-weight: 700; }
+.contact-card p, .contact-card a { margin-top: 0.25rem; display: block; font-size: 0.875rem; line-height: 1.625; color: rgb(var(--teal) / 0.75); }
+.contact-card a:hover { color: rgb(var(--gold)); }
+.fb-link { margin-top: 3rem; display: inline-flex; align-items: center; gap: 0.75rem; border-radius: 9999px; background-color: #1877F2; padding: 0.75rem 1.5rem; font-size: 0.875rem; line-height: 1.25rem; font-weight: 600; color: #fff; }
+.fb-link:hover { background-color: #0C63D4; }
+
+/* Team */
+.team { background-color: rgb(var(--teal)); color: #fff; }
+.team .section-text { color: rgb(var(--cream) / 0.8); }
+.team-grid { margin-top: 3rem; display: grid; gap: 1.5rem; }
+.person { border-radius: 1.5rem; background-color: rgb(255 255 255 / 0.1); padding: 2rem; text-align: center; }
+.person:hover { background-color: rgb(255 255 255 / 0.15); }
+.avatar { margin-left: auto; margin-right: auto; display: flex; height: 6rem; width: 6rem; aspect-ratio: 1 / 1; align-items: center; justify-content: center; border-radius: 1rem; background-color: rgb(var(--cream)); font-family: var(--font-display); font-size: 1.875rem; line-height: 2.25rem; font-weight: 700; color: rgb(var(--teal)); box-shadow: 0 0 0 4px rgb(var(--gold)); position: relative; overflow: hidden; }
+.avatar img { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; }
+.person h3 { margin-top: 1.25rem; font-size: 1.25rem; line-height: 1.75rem; font-weight: 700; }
+.person p { margin-top: 0.25rem; font-size: 0.875rem; line-height: 1.25rem; color: rgb(var(--gold)); }
+.person-fb { margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 9999px; background-color: #1877F2; padding: 0.5rem 1.125rem; font-size: 0.8125rem; line-height: 1.25rem; font-weight: 600; color: #fff; transition: background-color 200ms var(--ease); }
+.person-fb:hover { background-color: #0C63D4; }
+.person-fb .icon { height: 1rem; width: 1rem; }
+
+/* Footer */
+.footer { background-color: #fff; padding-top: 2.5rem; padding-bottom: 2.5rem; font-size: 0.875rem; line-height: 1.25rem; color: rgb(var(--teal) / 0.75); }
+.footer-row { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 1rem; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a:hover { color: rgb(var(--gold)); }
+
+/* Scroll reveal (set by JS) */
+.reveal { opacity: 0; translate: 0 24px; transition: opacity 0.7s ease, translate 0.7s ease, transform 0.3s ease, box-shadow 0.3s ease, background-color 0.2s ease, border-color 0.2s ease; }
+.reveal.show { opacity: 1; translate: none; }
+
+/* Breakpoints */
+@media (min-width: 640px) {
+  .room-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 768px) {
+  .section { padding-top: 7rem; padding-bottom: 7rem; }
+  .section-title { font-size: 3rem; line-height: 1; }
+  .nav-links { display: flex; }
+  .menu-btn { display: none; }
+  .hero-content { padding-bottom: 7rem; }
+  .hero-title { font-size: 4.5rem; line-height: 1; }
+  .rooms-head { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+  .contact-grid, .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer-row { flex-direction: row; }
+}
+@media (min-width: 1024px) {
+  .room-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Mobile only (below 640px) */
+@media (max-width: 639px) {
+  .wrap, .nav-bar, .hero-content, .footer-row { padding-left: 1rem; padding-right: 1rem; }
+  .section { padding-top: 4rem; padding-bottom: 4rem; }
+  .section-title { font-size: 1.625rem; line-height: 2rem; }
+  .section-text { font-size: 0.9375rem; }
+
+  .logo { font-size: 1.125rem; }
+  .nav-bar { height: 4rem; }
+  .btn, .btn-outline { padding: 0.75rem 1.5rem; font-size: 0.8125rem; }
+
+  .hero-content { padding-top: 8rem; padding-bottom: 4rem; }
+  .hero-title { font-size: 2.5rem; }
+  .hero-text { margin-top: 1.25rem; font-size: 1rem; }
+  .hero-actions { margin-top: 1.75rem; }
+
+  .filters { margin: 1rem -1rem 0; padding: 0.375rem 1rem; flex-wrap: nowrap; gap: 0.375rem; overflow-x: auto; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .chip { flex-shrink: 0; white-space: nowrap; padding: 0.3125rem 0.75rem; font-size: 0.75rem; line-height: 1rem; }
+
+  .room-grid { margin-top: 1.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  .room { border-radius: 1rem; }
+  .room-body { padding: 0.75rem; }
+  .room-name { font-size: 1rem; line-height: 1.375rem; }
+  .room-perks { margin-top: 0.625rem; margin-bottom: 0.75rem; font-size: 0.75rem; line-height: 1rem; }
+  .room-perks > li + li { margin-top: 0.25rem; }
+  .room-perks li { gap: 0.375rem; }
+  .room-perks li::before { margin-top: 0.3125rem; height: 0.3125rem; width: 0.3125rem; }
+  .room-price { padding-top: 0.75rem; }
+  .price { font-size: 1.25rem; line-height: 1.75rem; }
+  .price-note { font-size: 0.6875rem; }
+  .rooms-note { margin-top: 1.5rem; font-size: 0.8125rem; }
+
+  .contact-grid, .team-grid { margin-top: 2rem; gap: 1rem; }
+  .contact-card { padding: 1.25rem; border-radius: 1.25rem; }
+  .contact-icon { height: 2.5rem; width: 2.5rem; }
+  .contact-card h3 { font-size: 1rem; line-height: 1.5rem; }
+  .fb-link { margin-top: 2rem; padding: 0.625rem 1.25rem; font-size: 0.8125rem; }
+
+  .person { padding: 1.5rem; border-radius: 1.25rem; }
+  .avatar { height: 5rem; width: 5rem; font-size: 1.5rem; }
+  .person h3 { margin-top: 1rem; font-size: 1.125rem; }
+
+  .footer { padding-top: 2rem; padding-bottom: 2rem; font-size: 0.8125rem; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-title, .hero-text, .hero-actions { animation: none; }
+  .reveal { opacity: 1; translate: none; transition: none; }
+  .hero-video { display: none; }
+}
+</style>
+<style>
+/* Room photos (Unsplash). The illustration after each photo only shows if the photo fails to load. */
+.p-standard-1{background-image:url("https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.00'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.30'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='235' y='45' width='110' height='100' rx='4' fill='%23FFFFFF' stroke='%23016160' stroke-width='4'/%3E%3Crect x='241' y='51' width='98' height='88' fill='%23FFECE1'/%3E%3Ccircle cx='270' cy='80' r='14' fill='%23D78D46'/%3E%3Cpath d='M241 139 L241 118 Q270 100 300 118 T339 112 L339 139 Z' fill='%23016160' opacity='.55'/%3E%3Crect x='40' y='114' width='170' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='48' y='154' width='75.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='127.0' y='154' width='75.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='40' y='172' width='170' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='40' y='186' width='170' height='30' rx='6' fill='%23016160'/%3E%3Crect x='40' y='186' width='170' height='7' fill='%23D78D46'/%3E%3Crect x='48' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='192' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='231' y='178' width='28' height='38' rx='3' fill='%23D78D46' opacity='.8'/%3E%3Crect x='243' y='152' width='4' height='26' fill='%23016160'/%3E%3Cpath d='M231 152 L259 152 L253 132 L237 132 Z' fill='%23D78D46'/%3E%3Crect x='225' y='200' width='40' height='16' fill='%23016160'/%3E%3C/svg%3E")}
+.p-standard-2{background-image:url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Cg transform='translate(400 0) scale(-1 1)'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.03'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.37'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='235' y='45' width='110' height='100' rx='4' fill='%23FFFFFF' stroke='%23016160' stroke-width='4'/%3E%3Crect x='241' y='51' width='98' height='88' fill='%23FFECE1'/%3E%3Ccircle cx='280' cy='86' r='14' fill='%23D78D46'/%3E%3Cpath d='M241 139 L241 118 Q270 100 300 118 T339 112 L339 139 Z' fill='%23016160' opacity='.55'/%3E%3Crect x='290' y='45' width='4' height='100' fill='%23016160'/%3E%3Crect x='40' y='114' width='170' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='48' y='154' width='75.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='127.0' y='154' width='75.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='40' y='172' width='170' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='40' y='186' width='170' height='30' rx='6' fill='%23016160'/%3E%3Crect x='40' y='186' width='170' height='7' fill='%23D78D46'/%3E%3Crect x='48' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='192' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='231' y='178' width='28' height='38' rx='3' fill='%23D78D46' opacity='.8'/%3E%3Crect x='243' y='152' width='4' height='26' fill='%23016160'/%3E%3Cpath d='M231 152 L259 152 L253 132 L237 132 Z' fill='%23D78D46'/%3E%3Crect x='225' y='200' width='40' height='16' fill='%23016160'/%3E%3C/g%3E%3C/svg%3E")}
+.p-standard-3{background-image:url("https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.06'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.44'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='235' y='45' width='110' height='100' rx='4' fill='%23FFFFFF' stroke='%23016160' stroke-width='4'/%3E%3Crect x='241' y='51' width='98' height='88' fill='%23FFECE1'/%3E%3Ccircle cx='290' cy='92' r='14' fill='%23D78D46'/%3E%3Cpath d='M241 139 L241 118 Q270 100 300 118 T339 112 L339 139 Z' fill='%23016160' opacity='.55'/%3E%3Crect x='40' y='114' width='170' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='48' y='154' width='75.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='127.0' y='154' width='75.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='40' y='172' width='170' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='40' y='186' width='170' height='30' rx='6' fill='%23016160'/%3E%3Crect x='40' y='186' width='170' height='7' fill='%23D78D46'/%3E%3Crect x='48' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='192' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='231' y='178' width='28' height='38' rx='3' fill='%23D78D46' opacity='.8'/%3E%3Crect x='243' y='152' width='4' height='26' fill='%23016160'/%3E%3Cpath d='M231 152 L259 152 L253 132 L237 132 Z' fill='%23D78D46'/%3E%3Crect x='225' y='200' width='40' height='16' fill='%23016160'/%3E%3C/svg%3E")}
+.p-deluxe-1{background-image:url("https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.00'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.30'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='215' y='40' width='150' height='95' rx='4' fill='%23FFFFFF' stroke='%23016160' stroke-width='4'/%3E%3Crect x='221' y='46' width='138' height='83' fill='%23FFECE1'/%3E%3Crect x='287' y='46' width='4' height='83' fill='%23016160'/%3E%3Ccircle cx='240' cy='72' r='12' fill='%23D78D46'/%3E%3Cpath d='M221 129 L221 108 Q250 88 285 108 T359 100 L359 129 Z' fill='%23016160' opacity='.55'/%3E%3Crect x='30' y='114' width='180' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='38' y='154' width='80.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='122.0' y='154' width='80.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='30' y='172' width='180' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='30' y='186' width='180' height='30' rx='6' fill='%23016160'/%3E%3Crect x='30' y='186' width='180' height='7' fill='%23D78D46'/%3E%3Crect x='38' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='192' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='245' y='168' width='120' height='10' rx='3' fill='%23016160'/%3E%3Crect x='252' y='178' width='6' height='38' fill='%23016160'/%3E%3Crect x='352' y='178' width='6' height='38' fill='%23016160'/%3E%3Crect x='286' y='140' width='38' height='24' rx='3' fill='%23016160'/%3E%3Crect x='292' y='146' width='26' height='12' fill='%23D78D46' opacity='.8'/%3E%3Crect x='206' y='178' width='28' height='38' rx='3' fill='%23D78D46' opacity='.8'/%3E%3Crect x='218' y='152' width='4' height='26' fill='%23016160'/%3E%3Cpath d='M206 152 L234 152 L228 132 L212 132 Z' fill='%23D78D46'/%3E%3C/svg%3E")}
+.p-deluxe-2{background-image:url("https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Cg transform='translate(400 0) scale(-1 1)'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.03'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.37'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='215' y='40' width='150' height='95' rx='4' fill='%23FFFFFF' stroke='%23016160' stroke-width='4'/%3E%3Crect x='221' y='46' width='138' height='83' fill='%23FFECE1'/%3E%3Crect x='287' y='46' width='4' height='83' fill='%23016160'/%3E%3Ccircle cx='270' cy='72' r='12' fill='%23D78D46'/%3E%3Cpath d='M221 129 L221 108 Q250 88 285 108 T359 100 L359 129 Z' fill='%23016160' opacity='.55'/%3E%3Crect x='30' y='114' width='180' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='38' y='154' width='80.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='122.0' y='154' width='80.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='30' y='172' width='180' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='30' y='186' width='180' height='30' rx='6' fill='%23016160'/%3E%3Crect x='30' y='186' width='180' height='7' fill='%23D78D46'/%3E%3Crect x='38' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='192' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='245' y='168' width='120' height='10' rx='3' fill='%23016160'/%3E%3Crect x='252' y='178' width='6' height='38' fill='%23016160'/%3E%3Crect x='352' y='178' width='6' height='38' fill='%23016160'/%3E%3Crect x='286' y='140' width='38' height='24' rx='3' fill='%23016160'/%3E%3Crect x='292' y='146' width='26' height='12' fill='%23D78D46' opacity='.8'/%3E%3Crect x='206' y='178' width='28' height='38' rx='3' fill='%23D78D46' opacity='.8'/%3E%3Crect x='218' y='152' width='4' height='26' fill='%23016160'/%3E%3Cpath d='M206 152 L234 152 L228 132 L212 132 Z' fill='%23D78D46'/%3E%3C/g%3E%3C/svg%3E")}
+.p-deluxe-3{background-image:url("https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.06'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.44'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='215' y='40' width='150' height='95' rx='4' fill='%23FFFFFF' stroke='%23016160' stroke-width='4'/%3E%3Crect x='221' y='46' width='138' height='83' fill='%23FFECE1'/%3E%3Crect x='287' y='46' width='4' height='83' fill='%23016160'/%3E%3Ccircle cx='300' cy='72' r='12' fill='%23D78D46'/%3E%3Cpath d='M221 129 L221 108 Q250 88 285 108 T359 100 L359 129 Z' fill='%23016160' opacity='.55'/%3E%3Crect x='30' y='114' width='180' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='38' y='154' width='80.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='122.0' y='154' width='80.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='30' y='172' width='180' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='30' y='186' width='180' height='30' rx='6' fill='%23016160'/%3E%3Crect x='30' y='186' width='180' height='7' fill='%23D78D46'/%3E%3Crect x='38' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='192' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='245' y='168' width='120' height='10' rx='3' fill='%23016160'/%3E%3Crect x='252' y='178' width='6' height='38' fill='%23016160'/%3E%3Crect x='352' y='178' width='6' height='38' fill='%23016160'/%3E%3Crect x='286' y='140' width='38' height='24' rx='3' fill='%23016160'/%3E%3Crect x='292' y='146' width='26' height='12' fill='%23D78D46' opacity='.8'/%3E%3Crect x='206' y='178' width='28' height='38' rx='3' fill='%23D78D46' opacity='.8'/%3E%3Crect x='218' y='152' width='4' height='26' fill='%23016160'/%3E%3Cpath d='M206 152 L234 152 L228 132 L212 132 Z' fill='%23D78D46'/%3E%3C/svg%3E")}
+.p-seaview-1{background-image:url("https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.00'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.30'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='195' y='25' width='185' height='190' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='5'/%3E%3Crect x='202' y='32' width='171' height='176' fill='%23FFECE1'/%3E%3Ccircle cx='235' cy='70' r='18' fill='%23D78D46'/%3E%3Crect x='202' y='125' width='171' height='83' fill='%23016160' opacity='.8'/%3E%3Cpath d='M202 135 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 149 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 163 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 177 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 191 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Crect x='286' y='32' width='4' height='176' fill='%23016160'/%3E%3Crect x='190' y='208' width='195' height='10' fill='%23D78D46'/%3E%3Crect x='25' y='114' width='150' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='33' y='154' width='65.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='102.0' y='154' width='65.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='25' y='172' width='150' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='25' y='186' width='150' height='30' rx='6' fill='%23016160'/%3E%3Crect x='25' y='186' width='150' height='7' fill='%23D78D46'/%3E%3Crect x='33' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='157' y='216' width='10' height='12' fill='%23016160'/%3E%3C/svg%3E")}
+.p-seaview-2{background-image:url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Cg transform='translate(400 0) scale(-1 1)'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.03'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.37'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='195' y='25' width='185' height='190' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='5'/%3E%3Crect x='202' y='32' width='171' height='176' fill='%23FFECE1'/%3E%3Ccircle cx='265' cy='80' r='18' fill='%23D78D46'/%3E%3Crect x='202' y='125' width='171' height='83' fill='%23016160' opacity='.8'/%3E%3Cpath d='M202 135 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 149 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 163 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 177 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 191 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Crect x='286' y='32' width='4' height='176' fill='%23016160'/%3E%3Crect x='190' y='208' width='195' height='10' fill='%23D78D46'/%3E%3Crect x='25' y='114' width='150' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='33' y='154' width='65.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='102.0' y='154' width='65.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='25' y='172' width='150' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='25' y='186' width='150' height='30' rx='6' fill='%23016160'/%3E%3Crect x='25' y='186' width='150' height='7' fill='%23D78D46'/%3E%3Crect x='33' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='157' y='216' width='10' height='12' fill='%23016160'/%3E%3C/g%3E%3C/svg%3E")}
+.p-seaview-3{background-image:url("https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.06'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.44'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='195' y='25' width='185' height='190' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='5'/%3E%3Crect x='202' y='32' width='171' height='176' fill='%23FFECE1'/%3E%3Ccircle cx='295' cy='70' r='18' fill='%23D78D46'/%3E%3Crect x='202' y='125' width='171' height='83' fill='%23016160' opacity='.8'/%3E%3Cpath d='M202 135 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 149 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 163 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 177 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 191 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Crect x='286' y='32' width='4' height='176' fill='%23016160'/%3E%3Crect x='190' y='208' width='195' height='10' fill='%23D78D46'/%3E%3Crect x='25' y='114' width='150' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='33' y='154' width='65.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='102.0' y='154' width='65.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='25' y='172' width='150' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='25' y='186' width='150' height='30' rx='6' fill='%23016160'/%3E%3Crect x='25' y='186' width='150' height='7' fill='%23D78D46'/%3E%3Crect x='33' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='157' y='216' width='10' height='12' fill='%23016160'/%3E%3C/svg%3E")}
+.p-seaview-4{background-image:url("https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Cg transform='translate(400 0) scale(-1 1)'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.09'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.30'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='195' y='25' width='185' height='190' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='5'/%3E%3Crect x='202' y='32' width='171' height='176' fill='%23FFECE1'/%3E%3Ccircle cx='325' cy='80' r='18' fill='%23D78D46'/%3E%3Crect x='202' y='125' width='171' height='83' fill='%23016160' opacity='.8'/%3E%3Cpath d='M202 135 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 149 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 163 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 177 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Cpath d='M202 191 q21.375 -8 42.75 0 t42.75 0 t42.75 0 t42.75 0' fill='none' stroke='%23FFFFFF' stroke-width='2' opacity='.7'/%3E%3Crect x='286' y='32' width='4' height='176' fill='%23016160'/%3E%3Crect x='190' y='208' width='195' height='10' fill='%23D78D46'/%3E%3Crect x='25' y='114' width='150' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='33' y='154' width='65.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='102.0' y='154' width='65.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='25' y='172' width='150' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='25' y='186' width='150' height='30' rx='6' fill='%23016160'/%3E%3Crect x='25' y='186' width='150' height='7' fill='%23D78D46'/%3E%3Crect x='33' y='216' width='10' height='12' fill='%23016160'/%3E%3Crect x='157' y='216' width='10' height='12' fill='%23016160'/%3E%3C/g%3E%3C/svg%3E")}
+.p-family-1{background-image:url("https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.00'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.30'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='290' y='55' width='85' height='85' rx='4' fill='%23FFFFFF' stroke='%23016160' stroke-width='4'/%3E%3Crect x='296' y='61' width='73' height='73' fill='%23FFECE1'/%3E%3Ccircle cx='315' cy='85' r='11' fill='%23D78D46'/%3E%3Cpath d='M296 134 L296 112 Q320 98 345 112 T369 108 L369 134 Z' fill='%23016160' opacity='.55'/%3E%3Crect x='18' y='117' width='118' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='26' y='157' width='49.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='79.0' y='157' width='49.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='18' y='175' width='118' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='18' y='189' width='118' height='30' rx='6' fill='%23016160'/%3E%3Crect x='18' y='189' width='118' height='7' fill='%23D78D46'/%3E%3Crect x='26' y='219' width='10' height='12' fill='%23016160'/%3E%3Crect x='118' y='219' width='10' height='12' fill='%23016160'/%3E%3Crect x='150' y='117' width='118' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='158' y='157' width='49.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='211.0' y='157' width='49.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='150' y='175' width='118' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='150' y='189' width='118' height='30' rx='6' fill='%23016160'/%3E%3Crect x='150' y='189' width='118' height='7' fill='%23D78D46'/%3E%3Crect x='158' y='219' width='10' height='12' fill='%23016160'/%3E%3Crect x='250' y='219' width='10' height='12' fill='%23016160'/%3E%3Crect x='265' y='180' width='28' height='38' rx='3' fill='%23D78D46' opacity='.8'/%3E%3Crect x='277' y='154' width='4' height='26' fill='%23016160'/%3E%3Cpath d='M265 154 L293 154 L287 134 L271 134 Z' fill='%23D78D46'/%3E%3Crect x='269' y='200' width='20' height='16' fill='%23016160'/%3E%3C/svg%3E")}
+.p-family-2{background-image:url("https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'%3E%3Cg transform='translate(400 0) scale(-1 1)'%3E%3Crect width='400' height='300' fill='%23FFECE1'/%3E%3Crect width='400' height='300' fill='%23D78D46' opacity='0.03'/%3E%3Crect y='215' width='400' height='85' fill='%23D78D46' opacity='0.37'/%3E%3Crect y='213' width='400' height='4' fill='%23016160' opacity='.25'/%3E%3Crect x='290' y='55' width='85' height='85' rx='4' fill='%23FFFFFF' stroke='%23016160' stroke-width='4'/%3E%3Crect x='296' y='61' width='73' height='73' fill='%23FFECE1'/%3E%3Ccircle cx='335' cy='85' r='11' fill='%23D78D46'/%3E%3Cpath d='M296 134 L296 112 Q320 98 345 112 T369 108 L369 134 Z' fill='%23016160' opacity='.55'/%3E%3Crect x='18' y='117' width='118' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='26' y='157' width='49.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='79.0' y='157' width='49.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='18' y='175' width='118' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='18' y='189' width='118' height='30' rx='6' fill='%23016160'/%3E%3Crect x='18' y='189' width='118' height='7' fill='%23D78D46'/%3E%3Crect x='26' y='219' width='10' height='12' fill='%23016160'/%3E%3Crect x='118' y='219' width='10' height='12' fill='%23016160'/%3E%3Crect x='150' y='117' width='118' height='60' rx='8' fill='%23016160' opacity='.85'/%3E%3Crect x='158' y='157' width='49.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='211.0' y='157' width='49.0' height='20' rx='9' fill='%23FFFFFF'/%3E%3Crect x='150' y='175' width='118' height='44' rx='6' fill='%23FFFFFF' stroke='%23016160' stroke-width='2'/%3E%3Crect x='150' y='189' width='118' height='30' rx='6' fill='%23016160'/%3E%3Crect x='150' y='189' width='118' height='7' fill='%23D78D46'/%3E%3Crect x='158' y='219' width='10' height='12' fill='%23016160'/%3E%3Crect x='250' y='219' width='10' height='12' fill='%23016160'/%3E%3Crect x='265' y='180' width='28' height='38' rx='3' fill='%23D78D46' opacity='.8'/%3E%3Crect x='277' y='154' width='4' height='26' fill='%23016160'/%3E%3Cpath d='M265 154 L293 154 L287 134 L271 134 Z' fill='%23D78D46'/%3E%3Crect x='269' y='200' width='20' height='16' fill='%23016160'/%3E%3C/g%3E%3C/svg%3E")}
+</style>
+</head>
+
+<body>
+
+<!-- Icons (drawn once, reused below) -->
+<svg width="0" height="0" class="absolute" aria-hidden="true">
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.5-3.3h-3.3V8.4c0-.9.4-1.7 1.8-1.7h1.6V3.8c-.3 0-1.3-.2-2.4-.2-2.5 0-4.2 1.5-4.2 4.300v2.200H7.500v3.300h2.800V22h3.200z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.200 7 13 7 13s7-7.800 7-13a7 7 0 0 0-7-7zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.600 10.800a15.100 15.100 0 0 0 6.600 6.600l2.200-2.200a1 1 0 0 1 1-.25c1.100.37 2.300.57 3.600.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.500a1 1 0 0 1 1 1c0 1.300.2 2.500.57 3.600a1 1 0 0 1-.25 1l-2.200 2.200z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.500L4.500 7v.1L12 13l7.500-5.900V7L12 12.500z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/></symbol>
+</svg>
+
+<!-- Navigation -->
+<header class="nav" id="nav">
+  <div class="nav-bar">
+    <a href="#home" class="logo">Casa Alon Hotel</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#rooms" class="nav-link">Rooms</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#team" class="nav-link">Our team</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" aria-label="Mobile">
+    <a href="#rooms">Rooms</a>
+    <a href="#contact">Contact</a>
+    <a href="#team">Our team</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- 1. Video hero -->
+  <section id="home" class="hero">
+    <iframe class="hero-video" src="https://player.cloudinary.com/embed/?cloud_name=jjnsw8em&amp;public_id=Woman_rolling_suitcase_into_hotel_8de3599d&amp;profile=cld-looping&amp;player[autoplay]=true&amp;player[muted]=true&amp;player[loop]=true&amp;player[controls]=false" title="Background video" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"></iframe>
+    <div class="hero-shade"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">A quiet place to stay in Bato, Leyte</h1>
+      <p class="hero-text">Clean rooms, breakfast every morning, and a front desk that is open all day and night. Rates start at ₱5,500 per night.</p>
+      <div class="hero-actions">
+        <a href="#rooms" class="btn">See room rates</a>
+        <a href="#contact" class="btn-outline">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Rooms and prices -->
+  <section id="rooms" class="section rooms">
+    <div class="wrap">
+      <div class="rooms-head reveal">
+        <div>
+          <h2 class="section-title">Rooms and rates</h2>
+          <p class="section-text">Every rate is in Philippine pesos, per night, and includes breakfast.</p>
+        </div>
+      </div>
+
+      <div class="filters" id="filters" role="group" aria-label="Filter rooms by type">
+        <button class="chip on" data-filter="all">All rooms (12)</button>
+        <button class="chip" data-filter="standard">Standard (3)</button>
+        <button class="chip" data-filter="deluxe">Deluxe (3)</button>
+        <button class="chip" data-filter="seaview">Sea View (4)</button>
+        <button class="chip" data-filter="family">Family (2)</button>
+      </div>
+
+      <div class="room-grid" id="roomGrid">
+
+        <article class="room reveal" data-type="standard">
+          <div class="room-photo p-standard-1" role="img" aria-label="Standard Room 101"></div>
+          <div class="room-body">
+            <h3 class="room-name">Standard Room 101</h3>
+            <ul class="room-perks">
+              <li>Sleeps 2</li>
+              <li>Queen bed</li>
+              <li>Air conditioning and Wi-Fi</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="5500">₱5,500</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="standard">
+          <div class="room-photo p-standard-2" role="img" aria-label="Standard Room 102"></div>
+          <div class="room-body">
+            <h3 class="room-name">Standard Room 102</h3>
+            <ul class="room-perks">
+              <li>Sleeps 2</li>
+              <li>Queen bed</li>
+              <li>Air conditioning and Wi-Fi</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="5500">₱5,500</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="standard">
+          <div class="room-photo p-standard-3" role="img" aria-label="Standard Room 103"></div>
+          <div class="room-body">
+            <h3 class="room-name">Standard Room 103</h3>
+            <ul class="room-perks">
+              <li>Sleeps 2</li>
+              <li>Queen bed</li>
+              <li>Air conditioning and Wi-Fi</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="5500">₱5,500</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="deluxe">
+          <div class="room-photo p-deluxe-1" role="img" aria-label="Deluxe Room 201"></div>
+          <div class="room-body">
+            <h3 class="room-name">Deluxe Room 201</h3>
+            <ul class="room-perks">
+              <li>Sleeps 2</li>
+              <li>King bed and work desk</li>
+              <li>Air conditioning and Wi-Fi</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="6800">₱6,800</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="deluxe">
+          <div class="room-photo p-deluxe-2" role="img" aria-label="Deluxe Room 202"></div>
+          <div class="room-body">
+            <h3 class="room-name">Deluxe Room 202</h3>
+            <ul class="room-perks">
+              <li>Sleeps 2</li>
+              <li>King bed and work desk</li>
+              <li>Air conditioning and Wi-Fi</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="6800">₱6,800</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="deluxe">
+          <div class="room-photo p-deluxe-3" role="img" aria-label="Deluxe Room 203"></div>
+          <div class="room-body">
+            <h3 class="room-name">Deluxe Room 203</h3>
+            <ul class="room-perks">
+              <li>Sleeps 2</li>
+              <li>King bed and work desk</li>
+              <li>Air conditioning and Wi-Fi</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="6800">₱6,800</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="seaview">
+          <div class="room-photo p-seaview-1" role="img" aria-label="Sea View Room 301"></div>
+          <div class="room-body">
+            <h3 class="room-name">Sea View Room 301</h3>
+            <ul class="room-perks">
+              <li>Sleeps 3</li>
+              <li>King bed and sofa bed</li>
+              <li>Private bathroom with rain shower</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="8100">₱8,100</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="seaview">
+          <div class="room-photo p-seaview-2" role="img" aria-label="Sea View Room 302"></div>
+          <div class="room-body">
+            <h3 class="room-name">Sea View Room 302</h3>
+            <ul class="room-perks">
+              <li>Sleeps 3</li>
+              <li>King bed and sofa bed</li>
+              <li>Private bathroom with rain shower</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="8100">₱8,100</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="seaview">
+          <div class="room-photo p-seaview-3" role="img" aria-label="Sea View Room 303"></div>
+          <div class="room-body">
+            <h3 class="room-name">Sea View Room 303</h3>
+            <ul class="room-perks">
+              <li>Sleeps 3</li>
+              <li>King bed and sofa bed</li>
+              <li>Private bathroom with rain shower</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="8100">₱8,100</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="seaview">
+          <div class="room-photo p-seaview-4" role="img" aria-label="Sea View Room 304"></div>
+          <div class="room-body">
+            <h3 class="room-name">Sea View Room 304</h3>
+            <ul class="room-perks">
+              <li>Sleeps 3</li>
+              <li>King bed and sofa bed</li>
+              <li>Private bathroom with rain shower</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="8100">₱8,100</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="family">
+          <div class="room-photo p-family-1" role="img" aria-label="Family Room 401"></div>
+          <div class="room-body">
+            <h3 class="room-name">Family Room 401</h3>
+            <ul class="room-perks">
+              <li>Sleeps 4</li>
+              <li>Two double beds</li>
+              <li>Air conditioning and Wi-Fi</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="9500">₱9,500</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="room reveal" data-type="family">
+          <div class="room-photo p-family-2" role="img" aria-label="Family Room 402"></div>
+          <div class="room-body">
+            <h3 class="room-name">Family Room 402</h3>
+            <ul class="room-perks">
+              <li>Sleeps 4</li>
+              <li>Two double beds</li>
+              <li>Air conditioning and Wi-Fi</li>
+            </ul>
+            <div class="room-price">
+              <span class="price" data-price="9500">₱9,500</span>
+              <span class="price-note">per night</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <p class="rooms-note reveal">Check in from 2:00 pm. Check out by 11:00 am.</p>
+    </div>
+  </section>
+
+  <!-- 3. Contact -->
+  <section id="contact" class="section">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 class="section-title">Contact us</h2>
+        <p class="section-text">Message us on Facebook, call, or email to ask about availability.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <span class="contact-icon"><svg class="icon"><use href="#i-pin"/></svg></span>
+          <div>
+            <h3>Location</h3>
+            <p>Brgy. Dolho, Bato, Leyte, Philippines</p>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <span class="contact-icon"><svg class="icon"><use href="#i-phone"/></svg></span>
+          <div>
+            <h3>Phone</h3>
+            <a href="tel:+630000000000">+63 000 000 0000</a>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <span class="contact-icon"><svg class="icon"><use href="#i-mail"/></svg></span>
+          <div>
+            <h3>Email</h3>
+            <a href="mailto:stay@casaalon.example">stay@casaalon.example</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="fb-link reveal" href="https://www.facebook.com/profile.php?id=100091896925496" target="_blank" rel="noopener" aria-label="Visit our Facebook page">
+        <svg class="icon"><use href="#i-facebook"/></svg>
+        Visit our Facebook page
+      </a>
+    </div>
+  </section>
+
+  <!-- 4. Team -->
+  <section id="team" class="section team">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 class="section-title">Meet our team</h2>
+        <p class="section-text">The people who run Casa Alon Hotel every day.</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="person reveal">
+          <div class="avatar">JD<img src="https://res.cloudinary.com/jjnsw8em/image/upload/f_auto/q_auto/CEO.jpg" alt="" onerror="this.remove()"></div>
+          <h3>Jhunry Escuadra</h3>
+          <p>CEO</p>
+          <a class="person-fb" href="https://www.facebook.com/share/14tJkkrm2YP/" target="_blank" rel="noopener" aria-label="Jhunry Escuadra on Facebook">
+            <svg class="icon"><use href="#i-facebook"/></svg>
+            Jhunry Escuadra
+          </a>
+        </article>
+        <article class="person reveal">
+          <div class="avatar">MS<img src="https://res.cloudinary.com/jjnsw8em/image/upload/f_auto/q_auto/Manager.jpg" alt="" onerror="this.remove()"></div>
+          <h3>Camille Gilo</h3>
+          <p>Manager</p>
+          <a class="person-fb" href="https://www.facebook.com/xxkamew" target="_blank" rel="noopener" aria-label="Camille Gilo on Facebook">
+            <svg class="icon"><use href="#i-facebook"/></svg>
+            Camille Gilo
+          </a>
+        </article>
+        <article class="person reveal">
+          <div class="avatar">AR<img src="https://res.cloudinary.com/jjnsw8em/image/upload/f_auto/q_auto/Secretary.jpg" alt="" onerror="this.remove()"></div>
+          <h3>Althea Lora</h3>
+          <p>Secretary</p>
+          <a class="person-fb" href="https://www.facebook.com/profile.php?id=61583931494816" target="_blank" rel="noopener" aria-label="Althea Lora on Facebook">
+            <svg class="icon"><use href="#i-facebook"/></svg>
+            Althea Lora
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-row">
+    <p>© 2026 Casa Alon Hotel, Brgy. Dolho, Bato, Leyte, Philippines</p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#rooms">Rooms</a>
+      <a href="#contact">Contact</a>
+      <a href="#team">Our team</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav');
+  var menuBtn = document.getElementById('menuBtn');
+
+  // Header turns solid after the hero
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu
+  menuBtn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Highlight the nav link of the section on screen
+  var links = document.querySelectorAll('.nav-link');
+  var sections = ['rooms', 'contact', 'team'].map(function (id) { return document.getElementById(id); });
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (l) {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(function (s) { spy.observe(s); });
+
+  // Reveal on scroll
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+          setTimeout(function () { e.target.style.transitionDelay = ''; }, 1000);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 4) * 80 + 'ms';
+      io.observe(el);
+    });
+  } else {
+    items.forEach(function (el) { el.classList.add('show'); });
+  }
+
+  // Filter rooms by type
+  var chips = document.querySelectorAll('.chip');
+  var rooms = document.querySelectorAll('.room');
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var f = c.dataset.filter;
+      chips.forEach(function (x) { x.classList.toggle('on', x === c); });
+      rooms.forEach(function (r) {
+        r.classList.toggle('off', f !== 'all' && r.dataset.type !== f);
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
